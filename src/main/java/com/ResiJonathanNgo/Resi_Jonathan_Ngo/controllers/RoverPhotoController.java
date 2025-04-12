@@ -2,6 +2,8 @@ package com.ResiJonathanNgo.Resi_Jonathan_Ngo.controllers;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ResiJonathanNgo.Resi_Jonathan_Ngo.services.PhotoService;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
