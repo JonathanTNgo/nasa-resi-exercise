@@ -53,13 +53,10 @@ public class RoverPhotoController {
 
     // Single photo
     @GetMapping(value = "photos")
-    public ResponseEntity<?> getPhoto(
-        @RequestParam(name = "rover_name", required = true) String name,
-        @RequestParam(name = "photo_id", required = true) int id,
-        @RequestParam(name = "photo_link", required = true) String link) {
+    public ResponseEntity<?> getPhoto(@RequestParam(name = "photo_link", required = true) String link) {
         
         try {
-            File file = photoService.getPhoto(name, id, link);
+            File file = photoService.getPhoto(link);
             return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(Files.readAllBytes(file.toPath()));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());

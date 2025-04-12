@@ -27,12 +27,10 @@ public class PhotoService {
         return nasaMarsClient.getPhotosList(name, date);
     }
 
-    public File getPhoto(String name, int id, String link) {
-        final String fileName = name + link;
-
+    public File getPhoto(String url) {
         // Code referenced from nasa-exercise example provided
-        InputStream inputStream = nasaMarsClient.getPhoto(name, id, link);
-        Path path = Files.createFile(Paths.get(fileName));
+        InputStream inputStream = nasaMarsClient.getPhoto(url);
+        Path path = Files.createFile(Paths.get(url));
         Files.createDirectories(path.getParent());
         Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
 
