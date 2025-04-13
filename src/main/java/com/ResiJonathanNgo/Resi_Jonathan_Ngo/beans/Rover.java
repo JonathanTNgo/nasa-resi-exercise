@@ -8,8 +8,17 @@ public class Rover {
     private String launch_date;
     private String status;
 
-    public Rover () {
+    public Rover (int id, String name, String landing_date, String launch_date, String status) {
+        this.id = id;
+        this.name = name;
+        this.landing_date = landing_date;
+        this.launch_date = launch_date;
+        this.status = status;
     }
+
+    public Rover() {
+    }
+
 
     public int getId() {
         return id;
