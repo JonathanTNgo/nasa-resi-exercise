@@ -5,6 +5,8 @@ import java.io.InputStream;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import com.ResiJonathanNgo.Resi_Jonathan_Ngo.beans.RoverList;
+
 @Component
 public class NasaMarsClient {
 
@@ -15,14 +17,14 @@ public class NasaMarsClient {
 
     private final WebClient webClient = WebClient.create();
 
-    public List<Rover> getRovers() {
+    public RoverList getRovers() {
         return webClient.get()
             .uri(uriBuilder -> uriBuilder
                 .path(API_URL + "/rovers")
                 .queryParam(KEY_PARAM_NAME, API_KEY)
                 .build())
             .retrieve()
-            .bodyToMono(String.class)
+            .bodyToMono(RoverList.class)
             .block();
     }
 

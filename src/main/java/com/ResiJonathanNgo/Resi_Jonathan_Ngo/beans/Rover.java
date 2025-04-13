@@ -11,43 +11,43 @@ public class Rover {
     public Rover () {
     }
 
-    public int get_id() {
+    public int getId() {
         return id;
     }
 
-    public void set_id(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String get_name() {
+    public String getName() {
         return name;
     }
 
-    public void set_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String get_landing_date() {
+    public String getLanding_date() {
         return landing_date;
     }
 
-    public void set_landing_date(String landing_date) {
+    public void setLanding_date(String landing_date) {
         this.landing_date = landing_date;
     }
 
-    public String get_launch_date() {
+    public String getLaunch_date() {
         return launch_date;
     }
 
-    public void set_launch_date(String launch_date) {
+    public void setLaunch_date(String launch_date) {
         this.launch_date = launch_date;
     }
 
-    public String get_status() {
+    public String getStatus() {
         return status;
     }
 
-    public void set_status(String status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 }
