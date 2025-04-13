@@ -10,35 +10,35 @@ public class Camera {
     public Camera() {
     }
 
-    public int get_id() {
+    public int getId() {
         return id;
     }
 
-    public void set_id(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int get_rover_id() {
+    public int getRover_id() {
         return rover_id;
     }
 
-    public void set_rover_id(int rover_id) {
+    public void setRover_id(int rover_id) {
         this.rover_id = rover_id;
     }
 
-    public String get_name() {
+    public String getName() {
         return name;
     }
 
-    public void set_name(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String get_full_name() {
+    public String getFull_name() {
         return full_name;
     }
 
-    public void set_full_name(String full_name) {
+    public void setFull_name(String full_name) {
         this.full_name = full_name;
     }
 }

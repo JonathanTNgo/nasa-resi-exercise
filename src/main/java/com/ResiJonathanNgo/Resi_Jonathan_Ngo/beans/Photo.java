@@ -44,11 +44,11 @@ public class Photo {
         this.img_src = img_src;
     }
 
-    public String getDate() {
+    public String getEarth_date() {
         return earth_date;
     }
 
-    public void setDate(String earth_date) {
+    public void setEarth_date(String earth_date) {
         this.earth_date = earth_date;
     }
 
