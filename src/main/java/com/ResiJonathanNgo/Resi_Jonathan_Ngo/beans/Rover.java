@@ -19,7 +19,6 @@ public class Rover {
     public Rover() {
     }
 
-
     public int getId() {
         return id;
     }
@@ -58,5 +57,28 @@ public class Rover {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Override
+    // Two rovers are equal if all their fields match
+    public boolean equals(Object o) {
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Rover other = (Rover) o;
+
+        return (
+            id == other.getId() &&
+            name == other.getName() &&
+            landing_date == other.getLanding_date() &&
+            launch_date == other.getLaunch_date() &&
+            status == other.getStatus()
+        );
+    }
+
+    @Override
+    public String toString() {
+        return id + ""; 
     }
 }

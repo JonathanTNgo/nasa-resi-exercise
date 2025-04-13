@@ -9,6 +9,10 @@ public class Photo {
     private String earth_date;
     private Rover rover;
 
+    public Photo(int id) {
+        this.id = id;
+    }
+
     public Photo() {
     }
 
@@ -58,5 +62,16 @@ public class Photo {
 
     public void setRover(Rover rover) {
         this.rover = rover;
+    }
+
+    @Override
+    // Two photos are equal if their IDs match
+    public boolean equals(Object o) {
+        if (o == null || o.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Photo other = (Photo) o;
+        return (id == other.getId());
     }
 }
