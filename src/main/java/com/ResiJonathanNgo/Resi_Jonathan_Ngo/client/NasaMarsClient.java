@@ -15,12 +15,12 @@ public class NasaMarsClient {
     private final String KEY_PARAM_NAME = "api_key";
     private final String DATE_PARAM_NAME = "earth_date";
 
-    private final WebClient webClient = WebClient.create();
+    private final WebClient webClient = WebClient.builder().baseUrl(API_URL).build();
 
     public RoverList getRovers() {
         return webClient.get()
             .uri(uriBuilder -> uriBuilder
-                .path(API_URL + "/rovers")
+                .path("/rovers")
                 .queryParam(KEY_PARAM_NAME, API_KEY)
                 .build())
             .retrieve()

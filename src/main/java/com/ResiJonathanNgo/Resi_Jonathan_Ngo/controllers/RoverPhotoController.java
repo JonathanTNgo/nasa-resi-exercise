@@ -31,7 +31,7 @@ public class RoverPhotoController {
     @GetMapping("rovers")
     public ResponseEntity<?> getRovers() {
         try {
-            ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getRovers());
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getRovers());
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

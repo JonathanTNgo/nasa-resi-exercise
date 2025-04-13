@@ -10,6 +10,9 @@ import java.nio.file.StandardCopyOption;
 import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.stereotype.Service;
 
+import com.ResiJonathanNgo.Resi_Jonathan_Ngo.beans.RoverList;
+import com.ResiJonathanNgo.Resi_Jonathan_Ngo.client.NasaMarsClient;
+
 @Service
 public class PhotoService {
     
@@ -19,7 +22,7 @@ public class PhotoService {
         this.nasaMarsClient = nasaMarsClient;
     }
 
-    public List<Rover> getRovers() {
+    public RoverList getRovers() {
         return nasaMarsClient.getRovers();
     }
 
