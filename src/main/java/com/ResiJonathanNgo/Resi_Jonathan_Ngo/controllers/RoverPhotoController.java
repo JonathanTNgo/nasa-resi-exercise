@@ -44,7 +44,7 @@ public class RoverPhotoController {
         @RequestParam(name = "earth_date", required = true) String date) {
         
         try {
-            ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
+            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
         } catch (IllegalArgumentException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }

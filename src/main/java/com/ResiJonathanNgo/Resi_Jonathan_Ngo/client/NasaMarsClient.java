@@ -29,14 +29,16 @@ public class NasaMarsClient {
     }
 
     //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-2-27&api_key=7wzlvVZcOH3kNHz2gebneQmLDG3pVPcfzGssvLGu
+    //https://api.nasa.gov/mars-photos/api/v1/rovers/    curiosity/photos    ?earth_date=2017-2-27&api_key=7wzlvVZcOH3kNHz2gebneQmLDG3pVPcfzGssvLGu
     public PhotoList getPhotosList(String name, String date) {
         return webClient.get()
             .uri(uriBuilder -> uriBuilder
-                .path("/rovers")
+                .path("/" + name + "/photos")
+                .queryParam(DATE_PARAM_NAME, date)
                 .queryParam(KEY_PARAM_NAME, API_KEY)
                 .build())
             .retrieve()
-            .bodyToMono(RoverList.class)
+            .bodyToMono(PhotoList.class)
             .block();
     }
 
