@@ -4,16 +4,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ResiJonathanNgo.Resi_Jonathan_Ngo.services.PhotoService;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-
-import javax.print.attribute.standard.Media;
+import java.nio.file.Path;
 
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -51,17 +48,19 @@ public class RoverPhotoController {
     }
     
 
-    // // Single photo
-    // @GetMapping(value = "photos")
-    // public ResponseEntity<?> getPhoto(@RequestParam(name = "photo_link", required = true) String link) {
+    // Single photo
+    @GetMapping(value = "photos")
+    public ResponseEntity<?> getPhoto(@RequestParam(name = "photo_link", required = true) String link) {
         
-    //     try {
-    //         File file = photoService.getPhoto(link);
-    //         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(Files.readAllBytes(file.toPath()));
-    //     } catch (IllegalArgumentException e) {
-    //         return ResponseEntity.badRequest().body(e.getMessage());
-    //     } catch (IOException e) {
-    //         return ResponseEntity.badRequest().body(e.getMessage());
-    //     }
-    // }
+        try {
+            Path path = photoService.getPhoto(link);
+            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(Files.readAllBytes(path));
+        } catch (IllegalArgumentException e) {
+            System.out.println("ERRR");
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (IOException e) {
+            System.out.println("EERRRR");
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 }
