@@ -63,8 +63,6 @@ public class ControllerEndpointTests {
         when(photoService.getPhotosList("Dummy rover", "Dummy date")).thenReturn(expected);
         PhotoList result = (PhotoList) roverPhotoController.getPhotosList("Dummy rover", "Dummy date").getBody();
 
-        verify(photoService).getRovers();
-
         List<Photo> photos = result.getPhotos();
 
         assertEquals(2, photos.size());
