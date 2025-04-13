@@ -26,9 +26,9 @@ public class PhotoService {
         return nasaMarsClient.getRovers();
     }
 
-    // public List<Photo> getPhotosList(String name, String date) {
-    //     return nasaMarsClient.getPhotosList(name, date);
-    // }
+    public PhotoList getPhotosList(String name, String date) {
+        return nasaMarsClient.getPhotosList(name, date);
+    }
 
     // public File getPhoto(String url) {
     //     // Code referenced from nasa-exercise example provided

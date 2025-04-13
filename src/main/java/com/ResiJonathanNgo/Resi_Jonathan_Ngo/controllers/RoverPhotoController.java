@@ -37,18 +37,18 @@ public class RoverPhotoController {
         }
     }
 
-    // // List of photos for single date
-    // @GetMapping(value = "photos/list")
-    // public ResponseEntity<?> getPhotosList(
-    //     @RequestParam(name = "rover_name", required = true) String name,
-    //     @RequestParam(name = "earth_date", required = true) String date) {
+    // List of photos for single date
+    @GetMapping(value = "photos/list")
+    public ResponseEntity<?> getPhotosList(
+        @RequestParam(name = "rover_name", required = true) String name,
+        @RequestParam(name = "earth_date", required = true) String date) {
         
-    //     try {
-    //         ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
-    //     } catch (IllegalArgumentException e) {
-    //         return ResponseEntity.badRequest().body(e.getMessage());
-    //     }
-    // }
+        try {
+            ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
     
 
     // // Single photo
