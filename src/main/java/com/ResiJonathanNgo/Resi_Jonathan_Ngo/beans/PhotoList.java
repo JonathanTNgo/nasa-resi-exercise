@@ -4,15 +4,15 @@ import java.util.List;
 
 // Class added for serialization functionality when calling NASA's Rover photo API
 // Should be in-line with exercises' example project
-public class RoverList {
+public class PhotoList {
     
-    private List<Rover> rovers;
+    private List<Photo> photos;
 
-    public RoverList(List<Rover> rovers) {
-        this.rovers = rovers;
-    }
+    public PhotoList(List<Photo> photos) {
+        this.photos = photos;
+    } 
 
-    public List<Rover> getRovers() {
-        return rovers;
+    public List<Photo> getPhotos() {
+        return photos;
     }
 }
