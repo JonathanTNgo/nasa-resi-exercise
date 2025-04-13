@@ -35,7 +35,6 @@ public class PhotoService {
         final String sha = DigestUtils.sha512Hex(url);
 		final String imageFileName = new StringBuilder(IMAGE_CACHE_PATH).append(sha).toString();
         
-        // Saves photo, returns path
         byte[] photo = nasaMarsClient.getPhoto(url);
         Path filePath = Paths.get(IMAGE_CACHE_PATH + imageFileName);
 
