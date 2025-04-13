@@ -39,7 +39,7 @@ mvn clean install
 ```
 
 ## Running
-- Run the application with. This will start the server at localhost:8080
+- Run the application with. This will start the server at 'http://localhost:8080'
 
 ```bash
 mvn spring-boot:run
@@ -50,6 +50,41 @@ mvn spring-boot:run
 ```bash
 mvn test
 ```
+
+## Running with jar
+-After running
+
+```bash
+mvn clean install
+```
+- A jar file named `Resi-Jonathan-Ngo-0.0.1-SNAPSHOT.jar` will be created in the `/target` directory.
+- Run the jar from the root directory using
+
+```bash
+java -jar target/Resi-Jonathan-Ngo-0.0.1-SNAPSHOT.jar
+```
+-Server will be started at `http://localhost:8080`
+
+## Running with Docker
+- After running
+
+```bash
+mvn clean install
+```
+- Build the Docker image by running this command in the root directory
+
+```bash
+docker build -t jonathantngo-photo-server .
+```
+
+- Start the container by running this command
+
+```bash
+docker run -p 8080:8080 jonathantngo-photo-server
+```
+
+- Server will be started at `http://localhost:8080`
+
 
 ## Built With
 - Java 17
