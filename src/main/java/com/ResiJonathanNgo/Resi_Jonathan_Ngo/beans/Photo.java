@@ -12,51 +12,51 @@ public class Photo {
     public Photo() {
     }
 
-    public int get_id() {
+    public int getId() {
         return id;
     }
 
-    public void set_id(int id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public int get_sol() {
+    public int getSol() {
         return sol;
     }
 
-    public void set_sol(int sol) {
+    public void setSol(int sol) {
         this.sol = sol;
     }
 
-    public Camera get_camera() {
+    public Camera getCamera() {
         return camera;
     }
 
-    public void set_camera(Camera camera) {
+    public void setCamera(Camera camera) {
         this.camera = camera;
     }
 
-    public String get_imgsrc() {
+    public String getImg_src() {
         return img_src;
     }
 
-    public void set_imgsrc(String img_src) {
+    public void setImg_src(String img_src) {
         this.img_src = img_src;
     }
 
-    public String get_date() {
+    public String getDate() {
         return earth_date;
     }
 
-    public void set_date(String earth_date) {
+    public void setDate(String earth_date) {
         this.earth_date = earth_date;
     }
 
-    public Rover get_rover() {
+    public Rover getRover() {
         return rover;
     }
 
-    public void set_rover(Rover rover) {
+    public void setRover(Rover rover) {
         this.rover = rover;
     }
 }
