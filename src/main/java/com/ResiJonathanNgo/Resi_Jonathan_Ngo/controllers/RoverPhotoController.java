@@ -37,31 +37,31 @@ public class RoverPhotoController {
         }
     }
 
-    // List of photos for single date
-    @GetMapping(value = "photos/list")
-    public ResponseEntity<?> getPhotosList(
-        @RequestParam(name = "rover_name", required = true) String name,
-        @RequestParam(name = "earth_date", required = true) String date) {
+    // // List of photos for single date
+    // @GetMapping(value = "photos/list")
+    // public ResponseEntity<?> getPhotosList(
+    //     @RequestParam(name = "rover_name", required = true) String name,
+    //     @RequestParam(name = "earth_date", required = true) String date) {
         
-        try {
-            ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
+    //     try {
+    //         ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(photoService.getPhotosList(name, date));
+    //     } catch (IllegalArgumentException e) {
+    //         return ResponseEntity.badRequest().body(e.getMessage());
+    //     }
+    // }
     
 
-    // Single photo
-    @GetMapping(value = "photos")
-    public ResponseEntity<?> getPhoto(@RequestParam(name = "photo_link", required = true) String link) {
+    // // Single photo
+    // @GetMapping(value = "photos")
+    // public ResponseEntity<?> getPhoto(@RequestParam(name = "photo_link", required = true) String link) {
         
-        try {
-            File file = photoService.getPhoto(link);
-            return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(Files.readAllBytes(file.toPath()));
-        } catch (IllegalArgumentException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        } catch (IOException e) {
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
+    //     try {
+    //         File file = photoService.getPhoto(link);
+    //         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(Files.readAllBytes(file.toPath()));
+    //     } catch (IllegalArgumentException e) {
+    //         return ResponseEntity.badRequest().body(e.getMessage());
+    //     } catch (IOException e) {
+    //         return ResponseEntity.badRequest().body(e.getMessage());
+    //     }
+    // }
 }

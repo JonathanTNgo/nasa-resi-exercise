@@ -23,18 +23,18 @@ public class PhotoService {
         return nasaMarsClient.getRovers();
     }
 
-    public List<Photo> getPhotosList(String name, String date) {
-        return nasaMarsClient.getPhotosList(name, date);
-    }
+    // public List<Photo> getPhotosList(String name, String date) {
+    //     return nasaMarsClient.getPhotosList(name, date);
+    // }
 
-    public File getPhoto(String url) {
-        // Code referenced from nasa-exercise example provided
-        InputStream inputStream = nasaMarsClient.getPhoto(url);
-        Path path = Files.createFile(Paths.get(url));
-        Files.createDirectories(path.getParent());
-        Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
+    // public File getPhoto(String url) {
+    //     // Code referenced from nasa-exercise example provided
+    //     InputStream inputStream = nasaMarsClient.getPhoto(url);
+    //     Path path = Files.createFile(Paths.get(url));
+    //     Files.createDirectories(path.getParent());
+    //     Files.copy(inputStream, path, StandardCopyOption.REPLACE_EXISTING);
 
-        IOUtils.closeQuietly(inputStream);
-        return path.toFile();
-    }
+    //     IOUtils.closeQuietly(inputStream);
+    //     return path.toFile();
+    // }
 }
