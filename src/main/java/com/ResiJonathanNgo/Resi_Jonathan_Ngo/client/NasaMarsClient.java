@@ -1,12 +1,14 @@
 package com.ResiJonathanNgo.Resi_Jonathan_Ngo.client;
 
-import java.io.InputStream;
-
+import org.springframework.http.MediaType;
+import org.springframework.http.client.reactive.ReactorClientHttpConnector;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.ResiJonathanNgo.Resi_Jonathan_Ngo.beans.PhotoList;
 import com.ResiJonathanNgo.Resi_Jonathan_Ngo.beans.RoverList;
+
+import reactor.netty.http.client.HttpClient;
 
 @Component
 public class NasaMarsClient {
@@ -16,7 +18,13 @@ public class NasaMarsClient {
     private final String KEY_PARAM_NAME = "api_key";
     private final String DATE_PARAM_NAME = "earth_date";
 
-    private final WebClient webClient = WebClient.builder().baseUrl(API_URL).build();
+    private final WebClient webClient = WebClient
+        .builder()
+        .clientConnector(new ReactorClientHttpConnector(
+            HttpClient.create().followRedirect(true)
+        ))
+        .baseUrl(API_URL)
+        .build();
 
     public RoverList getRovers() {
         return webClient.get()
@@ -28,8 +36,6 @@ public class NasaMarsClient {
             .block();
     }
 
-    //https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2017-2-27&api_key=7wzlvVZcOH3kNHz2gebneQmLDG3pVPcfzGssvLGu
-    //https://api.nasa.gov/mars-photos/api/v1/rovers/    curiosity/photos    ?earth_date=2017-2-27&api_key=7wzlvVZcOH3kNHz2gebneQmLDG3pVPcfzGssvLGu
     public PhotoList getPhotosList(String name, String date) {
         return webClient.get()
             .uri(uriBuilder -> uriBuilder
@@ -42,7 +48,12 @@ public class NasaMarsClient {
             .block();
     }
 
-    // public InputStream getPhoto(String url) {
-    //     InputStream stream = webClient.get().uri(url).retrieve().bodyToMono(InputStream.class).block();
-    // }
+    public byte[] getPhoto(String url) {
+        return webClient.get()
+            .uri(url)
+            .accept(MediaType.ALL)
+            .retrieve()
+            .bodyToMono(byte[].class)
+            .block();
+    }
 }
